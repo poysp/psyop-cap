@@ -26,9 +26,9 @@
     const tokenPrice = tokenPriceInput.value;
 
     // Extract the numeric portion of the input using a regular expression
-    const numericInput = tokenPrice.match(/[0-9.]/g).join('');
+    const numericInput = tokenPrice.match(/[\d.]+/g)[0];
 
-    // Parse the numeric input as a float with 8 decimal places
+    // Parse the numeric input as a float and limit to 8 decimal places
     const adjustedTokenPrice = parseFloat(numericInput).toFixed(8);
 
     // Calculate the market cap
