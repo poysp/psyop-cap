@@ -25,15 +25,19 @@
     const tokenPriceInput = document.getElementById('tokenPrice');
     const tokenPrice = parseFloat(tokenPriceInput.value);
 
+    // Extract the first 8 digits after the decimal point
+    const adjustedTokenPrice = parseFloat(tokenPrice.toFixed(8));
+
     // Calculate the market cap
     const remainingTokens = 16468604709; // Replace with the actual remaining token value
-    const marketCap = remainingTokens * tokenPrice;
+    const marketCap = remainingTokens * adjustedTokenPrice;
 
     // Display the result
     const resultContainer = document.getElementById('result');
     resultContainer.textContent = `Market Cap: $${marketCap.toFixed(2)}`;
   });
 </script>
+
 
   <!-- Add your JavaScript code here -->
 </body>
