@@ -23,10 +23,13 @@
     
     // Get the token price input value
     const tokenPriceInput = document.getElementById('tokenPrice');
-    const tokenPrice = parseFloat(tokenPriceInput.value);
+    const tokenPrice = tokenPriceInput.value;
 
-    // Extract the first 8 digits after the decimal point
-    const adjustedTokenPrice = parseFloat(tokenPrice.toFixed(8));
+    // Extract the numeric portion of the input using a regular expression
+    const numericInput = tokenPrice.match(/[0-9.]/g).join('');
+
+    // Parse the numeric input as a float with 8 decimal places
+    const adjustedTokenPrice = parseFloat(numericInput).toFixed(8);
 
     // Calculate the market cap
     const remainingTokens = 16468604709; // Replace with the actual remaining token value
